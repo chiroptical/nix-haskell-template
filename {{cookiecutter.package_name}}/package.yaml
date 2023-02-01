@@ -1,0 +1,44 @@
+name:    {{ cookiecutter.package_name }}
+version: "0.0.1"
+
+dependencies:
+- base >= 4.7 && < 5
+
+default-extensions:
+- DeriveGeneric
+- ImportQualifiedPost
+- LambdaCase
+- OverloadedStrings
+- RecordWildCards
+- TypeApplications
+
+# The library contains all of our application code. The executable
+# defined below is just a thin wrapper.
+library:
+  source-dirs: src
+  ghc-options:
+  - -Wall
+  - -fwarn-tabs
+  - -O2
+
+# Runnable executable for our application
+executables:
+  {{ cookiecutter.package_name }}:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - {{ cookiecutter.package_name }}
+
+# Test suite
+tests:
+  {{ cookiecutter.package_name }}-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options: -Wall
+    dependencies:
+    - {{ cookiecutter.package_name }}
+    - hspec
