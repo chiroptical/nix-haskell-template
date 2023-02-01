@@ -2,7 +2,7 @@ nix-haskell-template
 ---
 
 This is a cookiecutter repository which contains my current Haskell jumping
-off point. Nix has the concepts of [zero-to-nix-templates][templates] but they
+off point. Nix has the concepts of [templates][zero-to-nix-templates] but they
 don't really offer the customizability I am looking for here.
 
 ## Get the template
@@ -13,7 +13,7 @@ To get this cookiecutter,
 nix develop nixpkgs#cookiecutter --command cookiecutter gh:chiroptical/nix-haskell-template
 ```
 
-You can install cookiecutter via [install-cookiecutter][their directions] and run,
+You can install cookiecutter via [their directions][install-cookiecutter] and run,
 
 ```shell
 cookiecutter gh:chiroptical/nix-haskell-template
