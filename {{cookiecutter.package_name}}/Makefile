@@ -1,14 +1,14 @@
 build: hpack
-	cabal build
+	cabal --ghc-options='${GHC_OPTIONS}' build
 
 hpack:
 	hpack .
 
 test: hpack
-	cabal test
+	cabal --ghc-options='${GHC_OPTIONS}' test
 
 run: hpack
-	cabal run
+	cabal --ghc-options='${GHC_OPTIONS}' run
 
 format-haskell:
 	find app/ src/ test/ -name "*.hs" -exec fourmolu -i {} +
@@ -19,6 +19,9 @@ format-nix:
 format: format-nix format-haskell
 
 ghcid: hpack
-	ghcid -c cabal repl
+	ghcid -c "cabal --ghc-options='${GHC_OPTIONS}' repl"
 
-.PHONY: hpack build test run format-haskell format-nix format ghcid
+hlint: hpack
+	hlint .
+
+.PHONY: build hpack test run format-haskell format-nix format ghcid hlint

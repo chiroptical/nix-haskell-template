@@ -48,6 +48,10 @@ will compile the project and print the package name you specified when running
 cookiecutter. There are some other make targets, e.g. `make format` will format
 your `haskell` and `nix` code.
 
+## Options
+
+- Define `GHC_OPTIONS` in your `.envrc` to pass options to `ghc`
+
 [zero-to-nix-templates]: https://zero-to-nix.com/concepts/flakes#templates
 [install-cookiecutter]: https://cookiecutter.readthedocs.io/en/stable/installation.html#install-cookiecutter
 [direnv]: https://direnv.net
