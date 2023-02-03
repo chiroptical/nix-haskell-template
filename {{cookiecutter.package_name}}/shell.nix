@@ -10,6 +10,7 @@ pkgs.mkShell {
     haskellPackages.hpack
     haskellPackages.retrie
     haskellPackages.fourmolu
+    haskellPackages.haskell-language-server
     alejandra
   ];
   withHoogle = true;
