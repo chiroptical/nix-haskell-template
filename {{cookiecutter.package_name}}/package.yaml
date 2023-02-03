@@ -16,10 +16,6 @@ default-extensions:
 # defined below is just a thin wrapper.
 library:
   source-dirs: src
-  ghc-options:
-  - -Wall
-  - -fwarn-tabs
-  - -O2
 
 # Runnable executable for our application
 executables:
@@ -38,7 +34,6 @@ tests:
   {{ cookiecutter.package_name }}-test:
     main: Spec.hs
     source-dirs: test
-    ghc-options: -Wall
     dependencies:
     - {{ cookiecutter.package_name }}
     - hspec
