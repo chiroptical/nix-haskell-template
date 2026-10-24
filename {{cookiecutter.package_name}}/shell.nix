@@ -1,19 +1,19 @@
-{pkgs, ...}:
-pkgs.mkShell {
-  inputsFrom = [
-    (import ./{{ cookiecutter.package_name }}.nix pkgs).env
-  ];
-  buildInputs = with pkgs; [
+{ pkgs, ... }:
+let
+  haskell = pkgs.callPackage ./haskell.nix { };
+in
+haskell.shellFor {
+  packages = p: [ p.{{ cookiecutter.package_name }} ];
+  nativeBuildInputs = with pkgs; [
     haskellPackages.cabal-install
     haskellPackages.ghcid
     haskellPackages.hlint
     haskellPackages.hpack
-    haskellPackages.retrie
     haskellPackages.fourmolu
     haskellPackages.haskell-language-server
-    alejandra
+    (nixfmt-tree.override {
+      settings.tree-root-file = "flake.nix";
+    })
   ];
   withHoogle = true;
-  LANG = "en_US.utf8";
 }
-
