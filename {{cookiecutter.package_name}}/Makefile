@@ -14,7 +14,7 @@ format-haskell:
 	find app/ src/ test/ -name "*.hs" -exec fourmolu -i {} +
 
 format-nix:
-	alejandra --quiet .
+	treefmt --tree-root-file flake.nix
 
 format: format-nix format-haskell
 

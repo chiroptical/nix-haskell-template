@@ -48,6 +48,10 @@ will compile the project and print the package name you specified when running
 cookiecutter. There are some other make targets, e.g. `make format` will format
 your `haskell` and `nix` code.
 
+You can update the Haskell version in `haskell.nix` (currently GHC 9.10).
+Use `nix build` to build the package. Run `nix flake check` to build, test,
+and check formatting.
+
 ## Options
 
 - Define `GHC_OPTIONS` in your `.envrc` to pass options to `ghc`
